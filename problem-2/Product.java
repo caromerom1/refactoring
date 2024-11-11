@@ -1,17 +1,43 @@
-package refactoring.problema6;
+package refactoring.problema3;
 
-public class Evento {
-    private String nombre;
+public class Product {
+  private int itemId;
+  private String item;
+  private int quantity;
 
-    public Evento(String nombre) {
-        this.nombre = nombre;
-    }
+  public Product(int itemId, String item, int quantity) {
+    this.itemId = itemId;
+    this.item = item;
+    this.quantity = quantity;
+  }
 
-    public String getNombre() {
-        return nombre;
-    }
+  public Product(String[] data) {
+    this.itemId = Integer.parseInt(data[0]);
+    this.item = data[1];
+    this.quantity = Integer.parseInt(data[2]);
+  }
 
-    public void setNombre(String nombre){
-        this.nombre = nombre;
-    }
+  public int getItemId() {
+    return itemId;
+  }
+
+  public void setItemId(int itemId) {
+    this.itemId = itemId;
+  }
+
+  public String getItem() {
+    return item;
+  }
+
+  public void setItem(String item) {
+    this.item = item;
+  }
+
+  public int getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
 }
