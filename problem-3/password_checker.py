@@ -1,38 +1,21 @@
 def checkear_contrasena(contrasena):
-    segura = True
-
     if len(contrasena) < 8:
-        segura = False
-    elif contrasena.isalpha():
-        segura = False
-    elif contrasena.isdigit():
-        segura = False
-    else:
-        char_especial = [
-            "!",
-            "@",
-            "#",
-            "$",
-            "%",
-            "^",
-            "&",
-            "*",
-            "(",
-            ")",
-            "-",
-            "_",
-            "+",
-            "=",
-        ]
-        cuenta = 0
-        for char in contrasena:
-            if char in char_especial:
-                cuenta += 1
-        if cuenta < 2:
-            segura = False
+        return False
 
-    return segura
+    if contrasena.isalpha():
+        return False
 
+    if contrasena.isdigit():
+        return False
+
+    char_especial = ["!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "+", "="]
+
+    cuenta = sum(1 for char in contrasena if char in char_especial)
+
+    if cuenta < 2:
+        return False
+
+    return True
 
 if __name__ == "__main__":
     contrasena = input("Ingrese una contrasena: ")
